@@ -2,37 +2,11 @@
       var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
 
       // Function for dumping the JSON content for each button into the div
-      function displayMovieInfo() {
-        // var cat = "cat"
-        // var movie = $(this).attr("data-name");
-        // //  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=dc6zaTOxFJmzC&limit=1";
-        // var queryURL = "https://api.giphy.com/v1/gifs/random?&api_key=dc6zaTOxFJmzC&limit=1&tag=" + movie + "";
-        // console.log(queryURL)
-        // $.ajax({
-        //   url: queryURL,
-        //   method: "GET"
-
-        // }).then(function(response) {
-
-        //   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //   // $("#images").text(JSON.stringify(response));
-        //   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //   // Saving the image_original_url property
-        //   var imageUrl = response.data.image_original_url;
-        //   // console.log(imageUrl);
-        //   // Creating and storing an image tag
-        //   var simpleImage = $("<img>");
-          
-        //   // Setting the catImage src attribute to imageUrl
-        //   simpleImage.attr("src", imageUrl);
-        //   simpleImage.attr("alt", "simple image");
-          
-        //   // Prepending the catImage to the images div
-        //   $("#images").prepend(simpleImage);
+      function displayMovieGifs() {
           
         var movie = $(this).attr("data-name");
 
-// Constructing a queryURL using the animal name
+// Constructing a queryURL using the movie name
 var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
   movie + "&api_key=5CvSI2HEOWxH4hmFgqM95HNWa6Q89PpH&limit=10";
 
@@ -61,19 +35,16 @@ $.ajax({
       // Creating and storing an image tag
       var movieImage = $("<img>");
       // Setting the src attribute of the image to a property pulled off the result item
-      movieImage.attr("src", results[i].images.fixed_height_small.url);
+      movieImage.attr("src", results[i].images.fixed_height_small_still.url);
 
       // Appending the paragraph and image tag to the animalDiv
       movieDiv.append(p);
       movieDiv.append(movieImage);
 
-      // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
+      // Prependng the movieDiv to the HTML page in the "#gifs-appear-here" div
       $("#images").prepend(movieDiv);
-    }
-  //});
-          renderButtons();
-            
-
+    } 
+          renderButtons();      
         });
 
       }
@@ -118,7 +89,7 @@ $.ajax({
 
       // Function for displaying the movie info
       // Using $(document).on instead of $(".movie").on to add event listeners to dynamically generated elements
-      $(document).on("click", ".movie", displayMovieInfo);
+      $(document).on("click", ".movie", displayMovieGifs);
 
       // Calling the renderButtons function to display the initial buttons
       renderButtons();
