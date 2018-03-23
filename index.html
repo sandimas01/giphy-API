@@ -6,69 +6,34 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
+    
 </head>
 <body>   
     
     <h1>giphy-API app</h1>    
+    <!-- Rendered Buttons will get Dumped Here  -->
+    <div id="buttons-view"></div>
+    
+    <form id="movie-form">
+      <label for="movie-input">Add a Movie Bro</label>
+      <input type="text" id="movie-input"><br>
+      
+      <!-- Button triggers new movie to be added -->
+      <input id="add-movie" type="submit" value="Add a Movie Bro">
+    </form>
+    <hr>
+    
+    <!-- Movies will Get Dumped Dere -->
+    <div id="images"></div>
+    <hr>
     
     <button data-animal="cat">meow</button>
     <button data-animal="dog">woof</button>
     <button data-animal="bird">chirp</button>
     <div id="gifs-appear-here">
     </div>
+    <hr>
 
-    <script type="text/javascript">
-        // Adding click event listen listener to all buttons
-        $("button").on("click", function() {
-          // Grabbing and storing the data-animal property value from the button
-          var animal = $(this).attr("data-animal");
-    
-          // Constructing a queryURL using the animal name
-          var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        animal + "&api_key=5CvSI2HEOWxH4hmFgqM95HNWa6Q89PpH&limit=10";
-    
-          // Performing an AJAX request with the queryURL
-          $.ajax({
-            url: queryURL,
-            method: "GET"
-          })
-            // After data comes back from the request
-            .then(function(response) {
-              console.log(queryURL);
-    
-              console.log(response);
-              // storing the data from the AJAX request in the results variable
-              var results = response.data;
-    
-              // Looping through each result item
-              for (var i = 0; i < results.length; i++) {
-    
-                // Creating and storing a div tag
-                var animalDiv = $("<div>");
-    
-                // Creating a paragraph tag with the result item's rating
-                var p = $("<p>").text("Rating: " + results[i].rating);
-    
-                // Creating and storing an image tag
-                var animalImage = $("<img>");
-                // Setting the src attribute of the image to a property pulled off the result item
-                animalImage.attr("src", results[i].images.fixed_height.url);
-    
-                // Appending the paragraph and image tag to the animalDiv
-                animalDiv.append(p);
-                animalDiv.append(animalImage);
-    
-                // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
-                $("#gifs-appear-here").prepend(animalDiv);
-              }
-            });
-        });
-      </script>
-
-    <script type="text/javascript">
-    
-  </script>
-
+<script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 </html>
