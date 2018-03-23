@@ -61,7 +61,7 @@ $.ajax({
       // Creating and storing an image tag
       var movieImage = $("<img>");
       // Setting the src attribute of the image to a property pulled off the result item
-      movieImage.attr("src", results[i].images.fixed_height.url);
+      movieImage.attr("src", results[i].images.fixed_height_small.url);
 
       // Appending the paragraph and image tag to the animalDiv
       movieDiv.append(p);

@@ -1,5 +1,7 @@
 h1{
-    color: blue
+    padding: 20px;
+    margin: 20px;
+    color: blue;
 }
 
 button,
@@ -8,3 +10,28 @@ button,
     input {
       margin: 10px;
     }
+
+    .container {
+        width: 100%;
+        max-width: 1640px;
+        margin: 5px auto;
+        clear: both;
+        float: left;
+      }
+    
+      .row {
+        width: 100%;
+        max-width: 640px;
+        margin: 0px auto;
+        clear: both;
+        float: left;
+      }
+
+    #image {
+        position: relative;
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        overflow: auto;
+      }
