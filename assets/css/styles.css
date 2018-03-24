@@ -11,6 +11,12 @@ button,
       margin: 10px;
     }
 
+    .movieDiv{
+      /* making the images go in one line rather than block & adding spacing between the images*/
+      float: left;
+      margin: 3px;
+  }
+
     .container {
         width: 100%;
         max-width: 1640px;
