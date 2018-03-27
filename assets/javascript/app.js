@@ -42,22 +42,7 @@ $.ajax({
       movieImage.attr("data-still", results[i].images.fixed_height_small_still.url);
       movieImage.attr("data-state", "still");
 
-      // $(".aniGif").on("click", function() {
-      //   // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-      //   var state = $(this).attr("data-state");
-      //   console.log(this);
-      //   // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-      //   // Then, set the image's data-state to animate
-      //   // Else set src to the data-still value
-      //   if (state == "still") {
-      //     $(this).attr("src", $(this).attr("data-animate"));
-      //     $(this).attr("data-state", "animate");
-      //   } else {
-      //     $(this).attr("src", $(this).attr("data-still"));
-      //     $(this).attr("data-state", "still");
-      //   }
-      // });
-      
+
       // Appending the paragraph and image tag to the animalDiv
       movieDiv.append(p);
       movieDiv.append(movieImage);
